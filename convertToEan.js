@@ -1,13 +1,12 @@
 const { Ean13Utils } = require("ean13-lib");
+const { EAN_LIMIT } = require("./constants");
+const productVariantToCode = require("./productVariantToCode");
 
-
-const convertToEan = (numStr) => {
-    let strippedStr = numStr.replace(/[^0-9]/gi, '')
-    strippedStr = strippedStr.slice(0, 12);
-    console.log(strippedStr)
-    const generatedBarcode = Ean13Utils.generate(strippedStr);
-    return generatedBarcode
-}
-
+const convertToEan = (productName) => {
+  //convert productName to code
+  const encodedProduct = productVariantToCode(productName, EAN_LIMIT)
+  const generatedBarcode = Ean13Utils.generate(encodedProduct);
+  return generatedBarcode.toString();
+};
 
 module.exports = convertToEan;
