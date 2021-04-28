@@ -19,4 +19,4 @@ const recursiveAsyncReadLine = function () {
   });
 };
 
-recursiveAsyncReadLine(); //we have to actually start our recursion somehowa
+recursiveAsyncReadLine(); //we have to actually start our recursion somehow
