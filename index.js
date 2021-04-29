@@ -1,5 +1,5 @@
 const convertToEan = require("./convertToEan");
-require('dotenv').config()
+require("dotenv").config();
 
 const readline = require("readline");
 const createProductFolder = require("./utils/createProductFolder");
@@ -24,7 +24,7 @@ const recursiveAsyncReadLine = function () {
     //Calling this function again to ask new question
     rl.question("Enter product description:\n", (answer) => {
       desc = answer;
-      createProductFolder(process.env.PRODUCTS_PATH, ean, productCode)
+      createProductFolder(process.env.PRODUCTS_PATH, ean, productCode);
       recursiveAsyncReadLine();
     });
   });

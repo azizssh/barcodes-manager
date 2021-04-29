@@ -3,17 +3,17 @@
   <DYMOLabel Version="3">
     <Description>DYMO Label</Description>
     <Orientation>Landscape</Orientation>
-    <LabelName>Address30251</LabelName>
+    <LabelName>Small30336</LabelName>
     <InitialLength>0</InitialLength>
     <BorderStyle>SolidLine</BorderStyle>
     <DYMORect>
       <DYMOPoint>
-        <X>0.23</X>
-        <Y>0.06</Y>
+        <X>0.09</X>
+        <Y>0.05666666</Y>
       </DYMOPoint>
       <Size>
-        <Width>3.21</Width>
-        <Height>0.9966667</Height>
+        <Width>1.976666</Width>
+        <Height>0.9033334</Height>
       </Size>
     </DYMORect>
     <BorderColor>
@@ -60,7 +60,7 @@
           <BarcodeFormat>Code128Auto</BarcodeFormat>
           <Data>
             <MultiDataString>
-              <DataString>1916111111018</DataString>
+              <DataString>1111111111116</DataString>
             </MultiDataString>
           </Data>
           <HorizontalAlignment>Center</HorizontalAlignment>
@@ -81,12 +81,12 @@
           </FontInfo>
           <ObjectLayout>
             <DYMOPoint>
-              <X>0.23</X>
-              <Y>0.06</Y>
+              <X>0.09</X>
+              <Y>0.09098543</Y>
             </DYMOPoint>
             <Size>
-              <Width>3.2</Width>
-              <Height>0.7110961</Height>
+              <Width>1.745963</Width>
+              <Height>0.6715186</Height>
             </Size>
           </ObjectLayout>
         </BarcodeObject>
@@ -123,19 +123,19 @@
           </Margin>
           <HorizontalAlignment>Center</HorizontalAlignment>
           <VerticalAlignment>Middle</VerticalAlignment>
-          <FitMode>AlwaysFit</FitMode>
+          <FitMode>None</FitMode>
           <IsVertical>False</IsVertical>
           <FormattedText>
-            <FitMode>AlwaysFit</FitMode>
+            <FitMode>None</FitMode>
             <HorizontalAlignment>Center</HorizontalAlignment>
             <VerticalAlignment>Middle</VerticalAlignment>
             <IsVertical>False</IsVertical>
             <LineTextSpan>
               <TextSpan>
-                <Text>GC-008</Text>
+                <Text>A</Text>
                 <FontInfo>
                   <FontName>Segoe UI</FontName>
-                  <FontSize>20.5</FontSize>
+                  <FontSize>12</FontSize>
                   <IsBold>False</IsBold>
                   <IsItalic>False</IsItalic>
                   <IsUnderline>False</IsUnderline>
@@ -150,12 +150,12 @@
           </FormattedText>
           <ObjectLayout>
             <DYMOPoint>
-              <X>1.019415</X>
-              <Y>0.6647164</Y>
+              <X>0.2935919</X>
+              <Y>0.7114896</Y>
             </DYMOPoint>
             <Size>
-              <Width>1.47734</Width>
-              <Height>0.3919503</Height>
+              <Width>1.338779</Width>
+              <Height>0.2485105</Height>
             </Size>
           </ObjectLayout>
         </TextObject>

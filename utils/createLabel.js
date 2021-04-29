@@ -1,4 +1,4 @@
-const labels = require("./constants");
+const [SMALL_LABEL_CODE] = require("./constants");
 
 const convertFileToArray = (file) => {
   const fs = require("fs");
@@ -7,20 +7,17 @@ const convertFileToArray = (file) => {
 };
 
 const createLabel = (
-  labelSize = labels.SMALL_LABEL_CODE,
+  labelSize,
   barcode,
   productCode
 ) => {
-  if (labels.indexOf(labelSize) === -1) {
-    console.log("LABEL SIZE IS INCORRECT");
-    return;
-  }
-  const labelFile = convertFileToArray("sampleLabel.dymo");
+  const labelFile = convertFileToArray(__dirname + "\\sampleSmallLabel.dymo");
   const labelIndex = 5;
   const barcodeIndex = 62;
   const productCodeIndex = 134;
 
-  labelFile[labelIndex]=labelFile[labelIndex].replace(labels.SMALL_LABEL_CODE, labelSize);
+  labelFile[labelIndex]=labelFile[labelIndex].replace(SMALL_LABEL_CODE, labelSize);
+  console.log(labelFile[labelIndex])
   labelFile[barcodeIndex] = labelFile[barcodeIndex].replace("1234567890123", barcode);
   labelFile[productCodeIndex] = labelFile[productCodeIndex].replace("PRODCODE", productCode.toUpperCase());
 
@@ -28,6 +25,7 @@ const createLabel = (
 };
 
 module.exports = createLabel;
+
 
 // const newFile = createLabel("Address30251", "1916111111018", 'SP-104');
 // newFile.forEach((line, idx) => console.log(idx, line))

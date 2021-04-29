@@ -3,7 +3,7 @@
   <DYMOLabel Version="3">
     <Description>DYMO Label</Description>
     <Orientation>Landscape</Orientation>
-    <LabelName>Small30336</LabelName>
+    <LabelName>Address30251</LabelName>
     <InitialLength>0</InitialLength>
     <BorderStyle>SolidLine</BorderStyle>
     <DYMORect>
@@ -60,7 +60,7 @@
           <BarcodeFormat>Code128Auto</BarcodeFormat>
           <Data>
             <MultiDataString>
-              <DataString>1234567890123</DataString>
+              <DataString>1111111111116</DataString>
             </MultiDataString>
           </Data>
           <HorizontalAlignment>Center</HorizontalAlignment>
@@ -132,7 +132,7 @@
             <IsVertical>False</IsVertical>
             <LineTextSpan>
               <TextSpan>
-                <Text>PRODCODE</Text>
+                <Text>A</Text>
                 <FontInfo>
                   <FontName>Segoe UI</FontName>
                   <FontSize>12</FontSize>
