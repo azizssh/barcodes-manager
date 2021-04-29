@@ -1,14 +1,12 @@
 const fs = require('fs')
+const path = require('path').win32
 
-const createProductFolder = ([barcode, productCode, ...extra]) => {
+const createProductFolder = (productsFolder, barcode, productCode) => {
     //create a folder with barcode in products
-    const productsPath = process.env.PRODUCTS_PATH || './products/'
-    const newFolderName = `${productsPath}/${barcode}-${productCode}`
-    try {
-      fs.mkdirSync(newFolderName)
-    } catch (err) {
-      console.log(err)
-      return;
+    const productsPath = `${productsFolder}/${barcode}-${productCode}/`;
+    if(!fs.existsSync(productsPath)) {
+      //create
+      fs.mkdirSync(productsPath);
     }
   }
 
