@@ -9,18 +9,22 @@ const rl = readline.createInterface({
 });
 
 const recursiveAsyncReadLine = function () {
-  rl.question("Enter product name: ", function (answer) {
+  let productCode = "",
+    ean = "",
+    desc = "";
+  rl.question("Enter product name:\n", function (answer) {
     if (answer == "exit")
       //we need some base case, for recursion
       return rl.close(); //closing RL and returning from function.
-    const ean = convertToEan(answer);
-    log(ean);
-    // ADD TO CSV FILE
-    
-    //CREATE FOLDER
-
-    //REQUEST BARCODE IMAGE AND SAVE IT 
-    recursiveAsyncReadLine(); //Calling this function again to ask new question
+    productCode = answer;
+    ean = convertToEan(answer);
+    log("EAN-13:", ean);
+    //Calling this function again to ask new question
+    rl.question("Enter product description:\n", (answer) => {
+      desc = answer;
+      console.log(ean, productCode, desc);
+      recursiveAsyncReadLine();
+    });
   });
 };
 
