@@ -1,31 +1,23 @@
-const labelSizes = require("./labelSizes");
-
-const convertFileToArray = (file) => {
-  const fs = require("fs");
-  const array = fs.readFileSync(file).toString().split("\n");
-  return array;
-};
+const convertFileToArray = require("./convertFileToArray");
 
 const createLabel = (labelSize, barcode, productCode) => {
-  if (!labelSizes.hasOwnProperty(labelSize)) {
-    console.log("INCORRECT LABEL SIZE");
-    return;
-  }
-
   let labelFile, barcodeIndex, productCodeIndex;
+
+  //impure
+  const setLabel = (sampleFile, barcodeI, productI) => {
+    labelFile = convertFileToArray(sampleFile);
+    barcodeIndex = barcodeI
+    productCodeIndex = productI
+  }
 
   switch (labelSize) {
     case "SMALL_LABEL_CODE": {
-      labelFile = convertFileToArray(__dirname + "\\sampleSmallLabel.dymo");
-      barcodeIndex = 62;
-      productCodeIndex = 134;
+      setLabel(__dirname+'\\sampleSmallLabel.dymo', 62, 134)
       break;
     }
 
     case "LARGE_LABEL_CODE": {
-      labelFile = convertFileToArray(__dirname + "\\sampleLargeLabel.dymo");
-      barcodeIndex = 131;
-      productCodeIndex = 70;
+      setLabel(__dirname + "\\sampleLargeLabel.dymo", 131, 70);
       break;
     }
     default:
@@ -45,12 +37,3 @@ const createLabel = (labelSize, barcode, productCode) => {
 };
 
 module.exports = createLabel;
-
-// const newFile = createLabel("Address30251", "1916111111018", 'SP-104');
-// newFile.forEach((line, idx) => console.log(idx, line))
-
-/*
-    <LabelName>Address30251</LabelName>
-              <DataString>1916111111018</DataString>
-                <Text>GC-008</Text>
-*/
