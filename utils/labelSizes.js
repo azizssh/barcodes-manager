@@ -1,7 +1,7 @@
 SMALL_LABEL_CODE = "Small30336";
 LARGE_LABEL_CODE = "Address30251";
 
-module.exports = [
-    SMALL_LABEL_CODE,
-    LARGE_LABEL_CODE
-]
+module.exports = {
+  SMALL_LABEL_CODE,
+  LARGE_LABEL_CODE,
+};

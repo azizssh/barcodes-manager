@@ -1,13 +1,14 @@
 const fs = require("fs");
-const [ SMALL_LABEL_CODE, LARGE_LABEL_CODE ] = require("./constants");
+const {SMALL_LABEL_CODE, LARGE_LABEL_CODE } = require("./labelSizes");
 const  createLabel = require('./createLabel')
+const path = require('path')
 
-const createLabelFile = (labelSize, array=[]) => {
+const createLabelFile = (labelSize, array=[], path) => {
   let file;
   if (labelSize === SMALL_LABEL_CODE) {
-    file = fs.createWriteStream("small-label.dymo");
+    file = fs.createWriteStream(path + "small-label.dymo");
   } else if (labelSize === LARGE_LABEL_CODE) {
-    file = fs.createWriteStream("large-label.dymo");
+    file = fs.createWriteStream(path + "large-label.dymo");
   } else {
     console.log("INCORRECT LABELSIZE SETTINGS");
     return;
@@ -23,19 +24,18 @@ const createProductFolder = (
   productCode
 ) => {
   //create a folder with barcode in products
-  const productsPath = `${productsFolder}/${barcode}-${productCode}/`;
+  const productsPath = `${productsFolder}/${barcode}-${productCode.toUpperCase()}/`;
   if (!fs.existsSync(productsPath)) {
     //create
-    fs.mkdirSync(productsPath);
+    fs.mkdirSync(productsPath, {recursive: true});
   }
 
   //get arrays
-  const smallLabel = createLabel(SMALL_LABEL_CODE, barcode, productCode);
-  const largeLabel = createLabel(LARGE_LABEL_CODE, barcode, productCode);
-  console.log('largelabel', largeLabel[5])
+  const smallLabel = createLabel("SMALL_LABEL_CODE", barcode, productCode);
+  const largeLabel = createLabel("LARGE_LABEL_CODE", barcode, productCode);
   //write arrays to files
-  createLabelFile(SMALL_LABEL_CODE, smallLabel);
-  createLabelFile(LARGE_LABEL_CODE, largeLabel)
+  createLabelFile(SMALL_LABEL_CODE, smallLabel, productsPath);
+  createLabelFile(LARGE_LABEL_CODE, largeLabel, productsPath);
 };
 
 module.exports = createProductFolder;

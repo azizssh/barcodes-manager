@@ -1,4 +1,4 @@
-const [SMALL_LABEL_CODE] = require("./constants");
+const labelSizes = require("./labelSizes");
 
 const convertFileToArray = (file) => {
   const fs = require("fs");
@@ -6,26 +6,49 @@ const convertFileToArray = (file) => {
   return array;
 };
 
-const createLabel = (
-  labelSize,
-  barcode,
-  productCode
-) => {
-  const labelFile = convertFileToArray(__dirname + "\\sampleSmallLabel.dymo");
-  const labelIndex = 5;
-  const barcodeIndex = 62;
-  const productCodeIndex = 134;
+const createLabel = (labelSize, barcode, productCode) => {
 
-  labelFile[labelIndex]=labelFile[labelIndex].replace(SMALL_LABEL_CODE, labelSize);
-  console.log(labelFile[labelIndex])
-  labelFile[barcodeIndex] = labelFile[barcodeIndex].replace("1234567890123", barcode);
-  labelFile[productCodeIndex] = labelFile[productCodeIndex].replace("PRODCODE", productCode.toUpperCase());
+  console.log('labelSize', labelSize)
+  console.log('labelsizes', labelSizes)
+  if (!labelSizes.hasOwnProperty(labelSize)) {
+    console.log("INCORRECT LABEL SIZE");
+    return;
+  }
+
+  const { SMALL_LABEL_CODE, LARGE_LABEL_CODE } = labelSizes;
+  let labelFile, barcodeIndex, productCodeIndex;
+
+  switch (labelSize) {
+    case "SMALL_LABEL_CODE": {
+      labelFile = convertFileToArray(__dirname + "\\sampleSmallLabel.dymo");
+      barcodeIndex = 62;
+      productCodeIndex = 134;
+      break;
+    }
+
+    case "LARGE_LABEL_CODE": {
+      labelFile = convertFileToArray(__dirname + "\\sampleLargeLabel.dymo");
+      barcodeIndex = 131;
+      productCodeIndex = 70;
+      break;
+    }
+    default:
+      return console.log("Something went wrong...");
+  }
+
+  labelFile[barcodeIndex] = labelFile[barcodeIndex].replace(
+    "1234567890123",
+    barcode
+  );
+  labelFile[productCodeIndex] = labelFile[productCodeIndex].replace(
+    "PRODCODE",
+    productCode.toUpperCase()
+  );
 
   return labelFile;
 };
 
 module.exports = createLabel;
-
 
 // const newFile = createLabel("Address30251", "1916111111018", 'SP-104');
 // newFile.forEach((line, idx) => console.log(idx, line))
