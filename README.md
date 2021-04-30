@@ -1,5 +1,5 @@
 # barcodes-manager
 
-## automated labeling system
+## Automating barcode system for the warehouse
 
 ### npm start
