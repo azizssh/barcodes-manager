@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const readline = require("readline");
 const createProductFolder = require("./utils/createProductFolder");
+const addToExcel = require("./addToExcel");
 const log = console.log;
 
 const rl = readline.createInterface({
@@ -25,6 +26,7 @@ const recursiveAsyncReadLine = function () {
     rl.question("Enter product description:\n", (answer) => {
       desc = answer;
       createProductFolder(process.env.PRODUCTS_PATH, ean, productCode);
+      addToExcel(productCode, desc, ean);
       recursiveAsyncReadLine();
     });
   });

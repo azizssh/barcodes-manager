@@ -8,14 +8,11 @@ const convertFileToArray = (file) => {
 
 const createLabel = (labelSize, barcode, productCode) => {
 
-  console.log('labelSize', labelSize)
-  console.log('labelsizes', labelSizes)
   if (!labelSizes.hasOwnProperty(labelSize)) {
     console.log("INCORRECT LABEL SIZE");
     return;
   }
 
-  const { SMALL_LABEL_CODE, LARGE_LABEL_CODE } = labelSizes;
   let labelFile, barcodeIndex, productCodeIndex;
 
   switch (labelSize) {
