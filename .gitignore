@@ -1,3 +1,4 @@
 .env
 products/
 barcodes-docx/
+node_modules/
