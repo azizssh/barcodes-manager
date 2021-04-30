@@ -7,7 +7,6 @@ const convertFileToArray = (file) => {
 };
 
 const createLabel = (labelSize, barcode, productCode) => {
-
   if (!labelSizes.hasOwnProperty(labelSize)) {
     console.log("INCORRECT LABEL SIZE");
     return;
@@ -39,7 +38,7 @@ const createLabel = (labelSize, barcode, productCode) => {
   );
   labelFile[productCodeIndex] = labelFile[productCodeIndex].replace(
     "PRODCODE",
-    productCode.toUpperCase()
+    productCode
   );
 
   return labelFile;
