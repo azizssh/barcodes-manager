@@ -1,13 +1,18 @@
+/*
+* Adding data to the end of the existing Excel .xlsx worksheet
+*/
+
 const reader = require("xlsx");
+
 const { EXCEL_FILENAME, PRODUCT_PATH } = require("./utils/constants");
 
-const addToExcel = (productCode, description, barcode) => {
-  const path = `${PRODUCT_PATH}/${EXCEL_FILENAME}`;
+const addToExcel = (dataAr) => {
+  const path = `${PRODUCT_PATH}/${EXCEL_FILENAME}`; //path to the output xls
 
-  const file = reader.readFile(path);
+  const file = reader.readFile(path); //getting xls file and read it
 
-  let newProduct = [productCode, description, barcode];
-  reader.utils.sheet_add_aoa(file.Sheets.ProductCodes, [newProduct], {
+  //aoa adds array of array
+  reader.utils.sheet_add_aoa(file.Sheets.ProductCodes, [dataAr], {
     origin: -1,
   });
 
