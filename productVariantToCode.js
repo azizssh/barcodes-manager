@@ -9,10 +9,8 @@ function productVariantToCode(str, limit) {
 
   let letters = str.replace(/[^a-zA-Z]/gi, "").slice(0, halfLimit);
   let numbers = str.replace(/[^0-9]/gi, "").slice(0, halfLimit);
-
   //turn letters into numbers
-  letters = lettersToNumbers(letters);
-
+  letters = lettersToNumbers(letters).slice(0, halfLimit);
   let len = letters.length + numbers.length;
   const dif = limit - len;
 
