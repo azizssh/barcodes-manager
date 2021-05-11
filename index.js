@@ -5,7 +5,7 @@ const {
   QUERY_DESCRIPTION,
   EXCEL_FILENAME,
 } = require("./utils/constants");
-const path = require('path')
+const path = require("path");
 const readline = require("readline");
 const createProductFolder = require("./utils/createProductFolder");
 const addToExcel = require("./addToExcel");
@@ -26,7 +26,7 @@ const recursiveAsyncReadLine = function () {
   rl.question(QUERY_PRODCODE, function (productCode) {
     const validProductCode = getValidProductCode(productCode);
     if (productCode == "exit")
-      //we need some base case, for recursion
+      //we need some base case, for recursionga
       return rl.close(); //closing RL and returning from function.
     const ean = convertToEan(validProductCode);
     //Calling this function again to ask new question
@@ -35,7 +35,7 @@ const recursiveAsyncReadLine = function () {
       if (!productsHash.hasOwnProperty(validProductCode)) {
         addToExcel([validProductCode, desc, ean]);
       } else {
-        console.log('The product is already present in the spreadsheet');
+        console.log("The product is already present in the spreadsheet");
       }
       recursiveAsyncReadLine();
     });
