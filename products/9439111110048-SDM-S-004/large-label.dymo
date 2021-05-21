@@ -68,7 +68,7 @@
             <IsVertical>False</IsVertical>
             <LineTextSpan>
               <TextSpan>
-                <Text>SDM-S-002</Text>
+                <Text>SDM-S-004</Text>
                 <FontInfo>
                   <FontName>Segoe UI</FontName>
                   <FontSize>20.5</FontSize>
@@ -129,7 +129,7 @@
           <BarcodeFormat>Code128Auto</BarcodeFormat>
           <Data>
             <MultiDataString>
-              <DataString>1941311110028</DataString>
+              <DataString>9439111110048</DataString>
             </MultiDataString>
           </Data>
           <HorizontalAlignment>Center</HorizontalAlignment>

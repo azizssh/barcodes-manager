@@ -60,7 +60,7 @@
           <BarcodeFormat>Code128Auto</BarcodeFormat>
           <Data>
             <MultiDataString>
-              <DataString>1941311110011</DataString>
+              <DataString>9439111110086</DataString>
             </MultiDataString>
           </Data>
           <HorizontalAlignment>Center</HorizontalAlignment>
@@ -132,7 +132,7 @@
             <IsVertical>False</IsVertical>
             <LineTextSpan>
               <TextSpan>
-                <Text>SDM-S-001</Text>
+                <Text>SDM-S-008</Text>
                 <FontInfo>
                   <FontName>Segoe UI</FontName>
                   <FontSize>12</FontSize>
