@@ -8,11 +8,11 @@
 
 1 x 1" Small30332
 
-**1 x 2 1/8" Small30336**
+**1 x 2 1/8" Small30336** Product Label, Box Label
 
-**1 1/8 x 3 1/2" Address30252**
+**1 1/8 x 3 1/2" Address30252** 
 
-3/8 x 3/4" Jewelry30299
+3/8 x 3/4" Jewelry30299 Price tags.
 
-4 x 6" Shipping4x6 1744907
+4 x 6" Shipping4x6 1744907 Large shipping label
 
